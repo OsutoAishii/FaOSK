@@ -66,9 +66,9 @@ static inline char *strcat(char *dest, const char *src)
 }
 
 //获取字符串长度函数
-static inline int strlen(const char *src)
+int strlen(const char *src)
 {
-	const char *eos = src;
-    while (*eos++);
-	return (eos - src - 1);
+	int i=0;
+    while(src[i]!=0)   i++;
+	return i;
 }

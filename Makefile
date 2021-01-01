@@ -27,7 +27,7 @@ all: $(S_OBJECTS) $(C_OBJECTS) link upimg
 
 link:
 	@echo 链接内核文件...
-	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o FaOSkernel
+	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o sys/FaOSkernel
 
 
 .PHONY:run
@@ -37,13 +37,13 @@ run:
 
 .PHONY:clean
 clean:
-	$(RM) $(S_OBJECTS) $(C_OBJECTS) FaOSkernel
+	$(RM) $(S_OBJECTS) $(C_OBJECTS) sys/FaOSkernel
 #end
 
 .PHONY:upimg
 upimg:
 	sudo mount floppy.img /mnt/kernel
-	sudo cp FaOSkernel /mnt/kernel/FaOSkernel
+	sudo cp -r sys/* /mnt/kernel/
 	sleep 1
 	sudo umount /mnt/kernel
 #end
