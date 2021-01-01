@@ -6,7 +6,7 @@
 #include "string.h"
 
 //内存拷贝函数
-static inline void memcpy(uint8 *dest, const uint8 *src, uint32 len)
+void memcpy(uint8 *dest, const uint8 *src, uint32 len)
 {
 	for (; len != 0; len--) 
 	{
@@ -15,7 +15,7 @@ static inline void memcpy(uint8 *dest, const uint8 *src, uint32 len)
 }
 
 //内存赋值函数
-static inline void memset(void *dest, uint8 val, uint32 len)
+void memset(void *dest, uint8 val, uint32 len)
 {
 	uint8 *dst = (uint8 *)dest;
 
@@ -26,12 +26,12 @@ static inline void memset(void *dest, uint8 val, uint32 len)
 }
 
 //内存清空（全部为0）函数
-static inline void bzero(void *dest, uint32 len)
+void bzero(void *dest, uint32 len)
 {
 	memset(dest, 0, len);
 }
 
-static inline int strcmp(const char *str1, const char *str2)
+int strcmp(const char *str1, const char *str2)
 {
     while (*str1 && *str2 && *str1 == *str2) 
 	{
@@ -42,7 +42,7 @@ static inline int strcmp(const char *str1, const char *str2)
 }
 
 //字符串拷贝函数
-static inline char *strcpy(char *dest, const char *src)
+char *strcpy(char *dest, const char *src)
 {
 	char *tmp = dest;
 	while (*src) 
@@ -54,7 +54,7 @@ static inline char *strcpy(char *dest, const char *src)
 }
 
 //字符串截取函数
-static inline char *strcat(char *dest, const char *src)
+char *strcat(char *dest, const char *src)
 {
 	char *cp = dest;
 	while (*cp) 

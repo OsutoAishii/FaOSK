@@ -11,7 +11,7 @@ LD = ld
 ASM = nasm
 
 C_FLAGS = -c -Wall -m32 -ggdb -gstabs+ -nostdinc -fno-builtin -fno-stack-protector\
-		-I include -I include/*/ -I arch/*/
+		-I faclibs/*/ -I faclibs/*/*/ -I faclibs/*/*/*/ -I kernel/*/ -I kernel/device/
 LD_FLAGS = -T scripts/kernel.ld -m elf_i386 -nostdlib
 ASM_FLAGS = -f elf -g -F stabs
 
@@ -27,7 +27,7 @@ all: $(S_OBJECTS) $(C_OBJECTS) link upimg
 
 link:
 	@echo 链接内核文件...
-	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o sys/FaOSkernel
+	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o rom/FaOSkernel
 
 
 .PHONY:run
@@ -37,13 +37,13 @@ run:
 
 .PHONY:clean
 clean:
-	$(RM) $(S_OBJECTS) $(C_OBJECTS) sys/FaOSkernel
+	$(RM) $(S_OBJECTS) $(C_OBJECTS) rom/FaOSkernel
 #end
 
 .PHONY:upimg
 upimg:
 	sudo mount floppy.img /mnt/kernel
-	sudo cp -r sys/* /mnt/kernel/
+	sudo cp -r rom/* /mnt/kernel/
 	sleep 1
 	sudo umount /mnt/kernel
 #end
