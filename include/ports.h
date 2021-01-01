@@ -1,5 +1,5 @@
 // Filename:  ports.h
-// Description:  一些类型的定义
+// Description:  关于端口读写的定义
 // Compiler:  gcc
 
 #ifndef INCLUDE_PORTS_H_

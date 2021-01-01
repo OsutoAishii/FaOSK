@@ -3,20 +3,20 @@
 // Compiler:  gcc
 
 #include "easyio.h"
+#include "math.h"
+#include "types.h"
+#include "stdio.h"
 
 int kernel_main()
 {
 	console_clear();
-	for(int i=0;;i++)
+	int i=0;
+	for(i=0;;i++)
 	{
-		if (i%2==0)
+		putc_color(random()%256,black,random()%16); 
+		for(int j=0;j<3000;j++) 
 		{
-			printSColor("A",rc_black,rc_blue);
-		}
-		else
-		{
-			printSColor("B",rc_black,rc_red);
+			j++;
 		}
 	}
-	return 0;
 }
