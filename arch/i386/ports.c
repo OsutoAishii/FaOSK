@@ -18,11 +18,10 @@ inline uint8 inb(uint16 port)
 	return ret;
 }
 
-// 端口读一个字
+// 端口读一个字节
 inline uint16 inw(uint16 port)
 {
 	uint16 ret;
 	asm volatile ("inw %1, %0" : "=a" (ret) : "dN" (port));
 	return ret;
 }
-

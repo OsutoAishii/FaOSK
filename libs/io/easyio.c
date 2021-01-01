@@ -32,15 +32,18 @@ static void scroll()
 	uint16 blank = 0x20 | (attribute_byte << 8);  // space 是 0x20
 
 	// cursor_y 到 25 的时候换行
-	if (cursor_y >= 25) {
+	if (cursor_y >= 25) 
+	{
 		// 将所有行的显示数据复制到上一行
 		int i;
-		for (i = 0 * 80; i < 24 * 80; i++) {
+		for (i = 0 * 80; i < 24 * 80; i++) 
+		{
 		      video_memory[i] = video_memory[i+80];
 		}
 
 		// 最后的一行数据现在填充空格
-		for (i = 24 * 80; i < 25 * 80; i++) {
+		for (i = 24 * 80; i < 25 * 80; i++) 
+		{
 		      video_memory[i] = blank;
 		}
 
@@ -56,7 +59,8 @@ void console_clear()
 	uint16 blank = 0x20 | (attribute_byte << 8);
 
 	int i;
-	for (i = 0; i < 80 * 25; i++) {
+	for (i = 0; i < 80 * 25; i++) 
+	{
 	      video_memory[i] = blank;
 	}
 
