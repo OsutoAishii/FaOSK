@@ -2,25 +2,21 @@
 // Description:  内核的入口函数
 // Compiler:  gcc
 
-#include "easyio.h"
 #include "math.h"
 #include "types.h"
 #include "stdio.h"
-#include "gdt.h"
-#include "idt.h"
+#include "gdt_idt.h"
+#include "asm.h"
 
 int kernel_main()
 {
+	printf("Initialization the GDT and IDT.\n");
 	init_gdt();
+	printf("Initialization GDT over.\n");
 	init_idt();
-	console_clear();
-	int i=0;
-	for(i=0;;i++)
+	printf("Initialization IDT over.\n");
+	for(;;)
 	{
-		putc_color(random()%256,black,random()%16); 
-		for(int j=0;j<3000;j++) 
-		{
-			j++;
-		}
+		tohlt();
 	}
 }

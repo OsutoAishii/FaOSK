@@ -1,5 +1,5 @@
 // Filename:  ports.c
-// Description:  几个屏幕打印函数
+// Description:  端口输入输出函数
 // Compiler:  gcc
 
 #include "ports.h"
