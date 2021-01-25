@@ -89,5 +89,7 @@ FaOSK
 \___Makefile //不解释
 |
 \___README.md //不解释
+|
+\___LICENSE   //不解释
 
 ```
