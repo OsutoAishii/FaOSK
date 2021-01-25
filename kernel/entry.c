@@ -5,16 +5,25 @@
 #include "math.h"
 #include "types.h"
 #include "stdio.h"
-#include "gdt_idt.h"
 #include "asm.h"
+#include "gdt.h"
+#include "idt.h"
 
 int kernel_main()
 {
-	printf("Initialization the GDT and IDT.\n");
+	console_clear();
+	printf("Boot FaOSK from GRUB...\n");
+
+	printf("Initialization GDT.\n");
 	init_gdt();
 	printf("Initialization GDT over.\n");
+
+	printf("Initialization iDT.\n");
 	init_idt();
 	printf("Initialization IDT over.\n");
+
+	printf("Boot over!\n");
+	printf("To hlt.\n");
 	for(;;)
 	{
 		tohlt();
