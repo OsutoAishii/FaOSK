@@ -27,6 +27,9 @@ typedef enum color
 	white = 15
 } ColorType;
 
+//设置光标位置
+void set_cursor(int x,int y);
+
 // 清屏操作
 void console_clear();
 

@@ -8,6 +8,7 @@
 #include "asm.h"
 #include "gdt.h"
 #include "idt.h"
+#include "timer.h"
 
 int kernel_main()
 {
@@ -22,10 +23,10 @@ int kernel_main()
 	init_idt();
 	printf("Initialization IDT over.\n");
 
+	printf("Initialization Timer INT.\n");
+	init_timer(1000);
+	printf("Initialization Timer INT over.\n");
+
 	printf("Boot over!\n");
-	printf("To hlt.\n");
-	for(;;)
-	{
-		tohlt();
-	}
+	asm volatile ("sti");
 }

@@ -12,6 +12,13 @@ static uint16 *video_memory = (uint16 *)0xB8000;
 static uint8 cursor_x = 0;
 static uint8 cursor_y = 0;
 
+//设置光标位置
+void set_cursor(int x,int y)
+{
+	cursor_x = x;
+	cursor_y = y;
+}
+
 // 移动光标
 static void move_cursor()
 {
