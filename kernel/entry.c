@@ -2,13 +2,10 @@
 // Description:  内核的入口函数
 // Compiler:  gcc
 
-#include "math.h"
-#include "types.h"
 #include "stdio.h"
-#include "asm.h"
 #include "gdt.h"
 #include "idt.h"
-#include "timer.h"
+#include "init_int.h"
 
 int kernel_main()
 {
@@ -23,10 +20,11 @@ int kernel_main()
 	init_idt();
 	printf("Initialization IDT over.\n");
 
-	printf("Initialization Timer INT.\n");
-	init_timer(1000);
-	printf("Initialization Timer INT over.\n");
+	printf("Initialization INT.\n");
+	init_int();
+	printf("Initialization INT over.\n");
 
-	printf("Boot over!\n");
+	printf("Boot over!\n\n");
+
 	asm volatile ("sti");
 }

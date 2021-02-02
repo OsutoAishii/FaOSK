@@ -2,6 +2,9 @@
 // Description:  字符串处理函数
 // Compiler:  gcc
 
+#ifndef STRING_H
+#define STRING_H
+
 #include "types.h"
 
 //内存拷贝函数
@@ -23,3 +26,5 @@ char *strcat(char *dest, const char *src);
 
 //获取字符串长度函数
 int strlen(const char *src);
+
+#endif

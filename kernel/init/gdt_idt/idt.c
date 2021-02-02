@@ -123,7 +123,7 @@ void isr_handler(pt_regs *regs)
 	{
 		INT_handlers[regs->int_no](regs);
 	}
-	else 
+	else
 	{
 		printfColor(black,blue,"Unhandled interrupt: %d\n",regs->int_no);
 	}

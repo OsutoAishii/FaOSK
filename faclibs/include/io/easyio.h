@@ -2,10 +2,11 @@
 // Description:  屏幕操作的相关函数的头文件
 // Compiler:  gcc
 
-#ifndef INCLUDE_PORTS_H_
-#define INCLUDE_PORTS_H_
+#ifndef EASYIO_H
+#define EASYIO_H
 
 #include "types.h"
+#include "ports.h"
 
 typedef enum color 
 {
@@ -27,8 +28,15 @@ typedef enum color
 	white = 15
 } ColorType;
 
+typedef struct cursor
+{
+	int x;
+	int y;
+} CursorAddress;
+
+
 //设置光标位置
-void set_cursor(int x,int y);
+CursorAddress set_cursor(int x,int y);
 
 // 清屏操作
 void console_clear();
@@ -48,4 +56,4 @@ void print_hex(uint32 n, ColorType back, ColorType fore);
 // 输出一个十进制的整型数
 void print_dec(uint32 n, ColorType back, ColorType fore);
 
-#endif //INCLUDE_PORTS_H_
+#endif

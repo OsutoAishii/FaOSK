@@ -2,8 +2,8 @@
 // Description:  一些类型的定义
 // Compiler:  gcc
 
-#ifndef INCLUDE_TYPES_H_
-#define INCLUDE_TYPES_H_
+#ifndef TYPES_H
+#define TYPES_H
 
 #ifndef NULL
 	#define NULL 0
@@ -23,4 +23,4 @@ typedef          short int16;
 typedef unsigned char  uint8;
 typedef          char  int8;
 
-#endif 	// INCLUDE_TYPES_H_
+#endif

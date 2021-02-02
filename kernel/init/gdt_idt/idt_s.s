@@ -1,6 +1,6 @@
 ;Filename:  idt_s.h
 ;Description:  中断描述表的汇编定义部分
-;Compiler:  gcc
+;Compiler:  nasm
 
 ;定义两个构造中断处理函数的宏(有的中断有错误代码，有的没有)
 ;用于没有错误代码的中断

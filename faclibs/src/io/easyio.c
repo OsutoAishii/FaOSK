@@ -9,21 +9,25 @@
 static uint16 *video_memory = (uint16 *)0xB8000;
 
 // 屏幕"光标"的坐标
-static uint8 cursor_x = 0;
-static uint8 cursor_y = 0;
+CursorAddress cursor;
+//cursor.x = 0;
+//cursor.y = 0;
 
 //设置光标位置
-void set_cursor(int x,int y)
+CursorAddress set_cursor(int x,int y)
 {
-	cursor_x = x;
-	cursor_y = y;
+	CursorAddress before_cursor;
+	before_cursor = cursor;
+	cursor.x = x;
+	cursor.y = y;
+	return before_cursor;
 }
 
 // 移动光标
 static void move_cursor()
 {
 	// 屏幕是 80 字节宽
-	uint16 cursorLocation = cursor_y * 80 + cursor_x;
+	uint16 cursorLocation = cursor.y * 80 + cursor.x;
 
 	outb(0x3D4, 14);                  	// 告诉 VGA 我们要设置光标的高字节
 	outb(0x3D5, cursorLocation >> 8); 	// 发送高 8 位
@@ -38,8 +42,8 @@ static void scroll()
 	uint8 attribute_byte = (0 << 4) | (15 & 0x0F);
 	uint16 blank = 0x20 | (attribute_byte << 8);  // space 是 0x20
 
-	// cursor_y 到 25 的时候换行
-	if (cursor_y >= 25) 
+	// cursor.y 到 25 的时候换行
+	if (cursor.y >= 25) 
 	{
 		// 将所有行的显示数据复制到上一行
 		int i;
@@ -54,8 +58,8 @@ static void scroll()
 		      video_memory[i] = blank;
 		}
 
-		// 向上移动了一行，cursor_y 是 24
-		cursor_y = 24;
+		// 向上移动了一行，cursor.y 是 24
+		cursor.y = 24;
 	}
 }
 
@@ -71,8 +75,8 @@ void console_clear()
 	      video_memory[i] = blank;
 	}
 
-	cursor_x = 0;
-	cursor_y = 0;
+	cursor.x = 0;
+	cursor.y = 0;
 	move_cursor();
 }
 
@@ -87,17 +91,17 @@ void putc_color(char c, ColorType back, ColorType fore)
 
 	// 0x08 是 退格键 的 ASCII 码
 	// 0x09 是 tab 键 的 ASCII 码
-	if (c==0x08&&cursor_x) {cursor_x--;} 
-	else if (c == 0x09)    {cursor_x = (cursor_x+8) & ~(8-1);}
-	else if (c == '\r')    {cursor_x = 0;}
-	else if (c == '\n')    {cursor_x = 0; cursor_y++;} 
-	else if (c >= ' ')     {video_memory[cursor_y*80 + cursor_x] = c | attribute; cursor_x++;}
+	if (c==0x08&&cursor.x) {cursor.x--;} 
+	else if (c == 0x09)    {cursor.x = (cursor.x+8) & ~(8-1);}
+	else if (c == '\r')    {cursor.x = 0;}
+	else if (c == '\n')    {cursor.x = 0; cursor.y++;} 
+	else if (c >= ' ')     {video_memory[cursor.y*80 + cursor.x] = c | attribute; cursor.x++;}
 
 	// 每 80 个字符一行，满80就换行
-	if (cursor_x >= 80) 
+	if (cursor.x >= 80) 
 	{
-		cursor_x = 0;
-		cursor_y ++;
+		cursor.x = 0;
+		cursor.y ++;
 	}
 
 	// 需要的话滚动屏幕

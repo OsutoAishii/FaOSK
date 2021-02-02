@@ -1,40 +1,19 @@
-// Filename:  timer.h
-// Description:  定义 PIT(周期中断定时器) 相关函数
+// Filename:  init_int.c
+// Description:  初始化中断函数
 // Compiler:  gcc
 
-#include "timer.h"
-#include "easyio.h"
-#include "stdio.h"
+#include "init_int.h"
+#include "types.h"
 #include "idt.h"
+#include "int.h"
 
-static int64 total_second;
-
-//定时器中断函数
-void timer_call(pt_regs *regs)
+//初始化中断
+void init_int()
 {
-	static uint32 tick = 0;
-	static int32 sec = 0;
-	static int32 min = 0;
-	static int32 hour = 0;
-	tick++;
-	if(tick>=1000)
-	{
-		tick=0;
-		sec++;
-		total_second++;
-		if(sec>=60)
-		{
-			sec=0;
-			min++;
-		}
-		if(min>=60)
-		{
-			min=0;
-			hour++;
-		}
-		set_cursor(0,8);
-		printf("%.2d:%.2d:%.2d\n",hour,min,sec);
-	}
+    //初始化时间中断
+    init_timer(1000);
+    //初始化键盘中断
+    reg_INT_handler(IRQ1, keyboard_call);
 }
 
 //初始化时间中断
@@ -57,10 +36,4 @@ void init_timer(uint32 frequency)
 	// 分别写入低字节和高字节
 	outb(0x40, low);
 	outb(0x40, hign);
-}
-
-//获取时间
-int64 get_total_second()
-{
-	return total_second;
 }

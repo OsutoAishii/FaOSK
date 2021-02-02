@@ -2,14 +2,15 @@
 // Description:  中断描述表
 // Compiler:  gcc
 
+#ifndef IDT_H
+#define IDT_H
+
 #include "types.h"
 
 // 定义IRQ
 #define  IRQ0     32 	// 电脑系统计时器
 #define  IRQ1     33 	// 键盘
-#define  IRQ2     34 	// 与 IRQ9 相接，MPU-401 MD 使用
-#define  IRQ3     35 	// 串口设备
-#define  IRQ4     36 	// 串口设备
+#define  IRQ2     34 	// 与 IRQ9 相接，MPU-401 MD 使用IDT_H
 #define  IRQ5     37 	// 建议声卡使用
 #define  IRQ6     38 	// 软驱传输控制使用
 #define  IRQ7     39 	// 打印机传输控制使用
@@ -135,3 +136,5 @@ void irq12(); 		// 接 PS/2 鼠标，也可设定给其他硬件
 void irq13(); 		// 协处理器使用
 void irq14(); 		// IDE0 传输控制使用
 void irq15(); 		// IDE1 传输控制使用
+
+#endif

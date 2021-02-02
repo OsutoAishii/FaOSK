@@ -2,6 +2,9 @@
 // Description:  标准输入输出库
 // Compiler:  gcc
 
+#ifndef STDIO_H
+#define STDIO_H
+
 #include "easyio.h"
 
 //可变形参表的定义
@@ -52,3 +55,5 @@ void printf(const char *format, ...);
 void printfColor(ColorType back, ColorType fore, const char *format, ...);
 
 static int vsprintf(char *buff, const char *format, va_list args);
+
+#endif
