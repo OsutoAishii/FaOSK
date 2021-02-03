@@ -33,10 +33,10 @@ sudo yum install gcc nasm qemu qemu-system-x86
 ```
 ##### 3.其他编译环境准备
 
-在/mnt目录中建立一个文件夹，用于挂载软盘映像并写入系统文件（详情见Makefile)。
+建立一个文件夹，用于挂载软盘映像并写入系统文件（详情见Makefile)。
 
 ```
-sudo mkdir /mnt/kernel
+sudo mkdir mnt
 ```
 ### 开发时所用命令
 
@@ -49,6 +49,11 @@ make
 
 ```
 make run
+```
+在bochs中运行(需要先安装bochs并先编译将新的系统文件写入软盘映像）：
+
+```
+make bochs
 ```
 清理无用的过程文件：
 

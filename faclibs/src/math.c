@@ -29,7 +29,8 @@ int random()
 int power_int(int base,int index)
 {
     int mul=base;
-    for(int i=0;i<index-1;i++)
+    int i;
+    for(i=0;i<index-1;i++)
     {
         mul *=base;
     }

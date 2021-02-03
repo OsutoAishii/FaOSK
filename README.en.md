@@ -33,10 +33,10 @@ sudo yum install gcc nasm qemu qemu-system-x86
 ```
 ##### 3. Other compilation environment preparation
 
-Create a folder in the /mnt directory to mount the floppy disk image and write system files (see Makefile for details).
+Create a folder in to mount the floppy disk image and write system files (see Makefile for details).
 
 ```
-sudo mkdir /mnt/kernel
+sudo mkdir mnt
 ```
 ### Commands used during development
 
@@ -49,6 +49,11 @@ Run in qemu (need to compile and write the new system file into the floppy disk 
 
 ```
 make run
+```
+Run in bochs (need to installed bochs and compile and write the new system file into the floppy disk image):
+
+```
+make bochs
 ```
 Clean up useless process files:
 

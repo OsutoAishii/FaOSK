@@ -43,25 +43,25 @@ clean:
 
 .PHONY:upimg
 upimg:
-	sudo mount floppy.img /mnt/kernel
-	sudo cp -r rom/* /mnt/kernel/
+	sudo mount floppy.img ./mnt/
+	sudo cp -r rom/* ./mnt/
 	sleep 1
-	sudo umount /mnt/kernel
+	sudo umount ./mnt/
 #end
 
 .PHONY:mntimg
 mntimg:
-	sudo mount floppy.img /mnt/kernel
+	sudo mount floppy.img ./mnt/
 #end
 
 .PHONY:umntimg
 umntimg:
-	sudo umount /mnt/kernel
+	sudo umount ./mnt/
 #end
 
 .PHONY:bochs
 bochs:
-	bochs -f scripts/bochsrc.txt
+	bochs -f scripts/bochsrc.txt -q
 #end
 
 .PHONY:debug

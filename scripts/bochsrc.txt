@@ -1,0 +1,29 @@
+# bochsrc.txt
+# boshs配置文件
+
+#开启gdb联合调试
+#gdbstub: enabled=1,port=1234,text_base=0,data_base=0,bss_base=0
+
+#设定内存
+megs: 32
+
+#ROM
+romimage: file="$BXSHARE/BIOS-bochs-latest"
+vgaromimage: file="$BXSHARE/VGABIOS-lgpl-latest"
+
+#设定软盘
+floppya: 1_44=floppy.img, status=inserted
+boot: a
+
+#设定从软盘启动
+boot: floppy
+
+#不启用鼠标
+mouse: enabled=0
+
+#设定键盘使用US键盘
+#keyboard_mapping: enabled=1, map="$BXSHARE/keymaps/x11-pc-us.map"
+
+#CPU配置
+clock: sync=realtime
+cpu: ips=1000000
