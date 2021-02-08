@@ -7,6 +7,7 @@
 #include "ports.h"
 #include "types.h"
 #include "easyio.h"
+#include "keyboard.h"
 
 //定时器中断函数
 void timer_call(pt_regs *regs)
@@ -35,6 +36,7 @@ void timer_call(pt_regs *regs)
 		cursor=set_cursor(0,8);
 		printf("%.2d:%.2d:%.2d\n",hour,min,sec);
         set_cursor(cursor.x,cursor.y);
+		printf(" \b");
 	}
 }
 
@@ -47,7 +49,8 @@ int64 get_total_second()
 //键盘中断函数
 void keyboard_call(pt_regs *regs)
 {
-	unsigned char data;
-	data=inb(0x0060);
-	printf("%02x",data);
+	unsigned char be_data,af_data;
+	be_data=inb(0x0060);
+	af_data = data_hander(be_data);
+	printf("%c",af_data);
 }
