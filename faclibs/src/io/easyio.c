@@ -91,7 +91,11 @@ void putc_color(char c, ColorType back, ColorType fore)
 
 	// 0x08 是 退格键 的 ASCII 码
 	// 0x09 是 tab 键 的 ASCII 码
-	if (c==0x08&&cursor.x) {cursor.x--;} 
+	if (c==0x08&&cursor.x)
+	{
+		cursor.x--;
+	    video_memory[cursor.y*80 + cursor.x] = ' ' | attribute;
+	}
 	else if (c == 0x09)    {cursor.x = (cursor.x+8) & ~(8-1);}
 	else if (c == '\r')    {cursor.x = 0;}
 	else if (c == '\n')    {cursor.x = 0; cursor.y++;} 
