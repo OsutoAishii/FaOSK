@@ -6,7 +6,7 @@
 #include "idt.h"
 #include "ports.h"
 #include "types.h"
-#include "easyio.h"
+#include "display.h"
 #include "keyboard.h"
 
 //定时器中断函数

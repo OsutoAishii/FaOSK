@@ -11,8 +11,8 @@ LD = ld
 ASM = nasm
 
 C_FLAGS = -c -Wall -m32 -ggdb -gstabs+ -nostdinc -fno-builtin -fno-stack-protector\
-	    -I faclibs/*/ -I faclibs/*/*/ -I faclibs/*/*/*/ -I faclibs/*/*/*/*/\
-		-I kernel/device/ -I kernel/init/ -I kernel/init/*/
+	    -I faclibs/*/ -I faclibs/*/*/ -I faclibs/*/*/*/\
+		-I kernel/include/device/ -I kernel/include/init/
 LD_FLAGS = -T scripts/kernel.ld -m elf_i386 -nostdlib
 ASM_FLAGS = -f elf -g -F stabs
 
@@ -43,20 +43,20 @@ clean:
 
 .PHONY:upimg
 upimg:
-	sudo mount floppy.img ./mnt/
-	sudo cp -r rom/* ./mnt/
+	mount floppy.img ./mnt/
+	cp -r rom/* ./mnt/
 	sleep 1
-	sudo umount ./mnt/
+	umount ./mnt/
 #end
 
 .PHONY:mntimg
 mntimg:
-	sudo mount floppy.img ./mnt/
+	mount floppy.img ./mnt/
 #end
 
 .PHONY:umntimg
 umntimg:
-	sudo umount ./mnt/
+	umount ./mnt/
 #end
 
 .PHONY:bochs

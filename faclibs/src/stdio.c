@@ -2,7 +2,7 @@
 // description:  标准输入输出库
 // Compiler:  gcc
 
-#include "easyio.h"
+#include "display.h"
 #include "string.h"
 #include "stdio.h"
 

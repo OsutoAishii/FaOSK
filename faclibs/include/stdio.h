@@ -5,7 +5,7 @@
 #ifndef STDIO_H
 #define STDIO_H
 
-#include "easyio.h"
+#include "display.h"
 
 //可变形参表的定义
 typedef __builtin_va_list va_list;

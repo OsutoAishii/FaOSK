@@ -1,9 +1,17 @@
-// Filename:  easyio.h
-// Description:  屏幕操作的相关函数的头文件
+//----------------------------------------------
+// Filename:  display.h
+//
+// Description:  屏幕操作的一些函数实现
+//
+// Time: 2021.3.28 4:55
+//
+// Creator: FirstArchve
+//
 // Compiler:  gcc
+//----------------------------------------------
 
-#ifndef EASYIO_H
-#define EASYIO_H
+#ifndef DISPLAY_H
+#define DISPLAY_H
 
 #include "types.h"
 #include "ports.h"

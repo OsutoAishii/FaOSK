@@ -2,7 +2,7 @@
 // Description:  中断描述表
 // Compiler:  gcc
 
-#include "easyio.h"
+#include "display.h"
 #include "string.h"
 #include "idt.h"
 #include "stdio.h"

@@ -1,8 +1,16 @@
-// Filename:  easyio.c
-//Description:  屏幕操作的一些函数实现
+//----------------------------------------------
+// Filename:  display.c
+//
+// Description:  屏幕操作的一些函数实现
+//
+// Time: 2021.3.28 4:55
+//
+// Creator: FirstArchve
+//
 // Compiler:  gcc
+//----------------------------------------------
 
-#include "easyio.h"
+#include "display.h"
 #include "ports.h"
 
 // VGA 的显示缓冲的起点是 0xB8000

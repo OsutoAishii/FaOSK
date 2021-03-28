@@ -371,4 +371,3 @@ unsigned char data_hander(unsigned char be_data)
     }
     return af_data;
 }
-	
