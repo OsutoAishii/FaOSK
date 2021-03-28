@@ -79,6 +79,8 @@ FaOSK
 |   |
 |   \_____init    //Initialization code, including GDT and IDT, etc.
 |   |
+|   \_____include //Headfile
+|   |
 |   \_____entry.c //Kernel main function
 |
 \___rom      //Floppy Disk Directory
