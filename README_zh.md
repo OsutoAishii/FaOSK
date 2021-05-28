@@ -1,5 +1,6 @@
 ## FaOSK操作系统内核
 ***[English Edition (英文版)](./README.md)***
+
 FaOSK操作系统内核是一个运行在intel x86平台的32位处理器上的的系统内核，可运行在qemu，bochs，virtualbox，vmware等虚拟机中，也可以在物理机上面运行。
 
 ### 系统功能列表
