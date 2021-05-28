@@ -1,4 +1,6 @@
 ## FaOSK Operating system kernel
+***[中文版 (Chinese Edition)](./README_zh.md)***
+
 The FaOSK operating system kernel is a system kernel running on the 32-bit processor of the Intel x86 platform, which can run in virtual machines such as qemu, bochs, virtualbox, vmware, or on a physical machine.
 
 ### System function list
